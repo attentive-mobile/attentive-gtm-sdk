@@ -1,0 +1,5 @@
+homepage: "https://www.attentive.com/"
+documentation: "https://docs.attentive.com/pages/developer-guides/sdks/gtm-sdk-via-attentive-analytics-template/"
+versions:
+  - sha: 930e6b5fac05dad4ef467a3558a7e22262ed912b
+    changeNotes: Initial release.
