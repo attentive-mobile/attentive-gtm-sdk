@@ -399,21 +399,10 @@ const processItem = (item) => {
 
 if (data.eventType === "purchase") {
   if (data.items) {
-     if (Array.isArray(data.items)) {
-       data.items.forEach((item) => {
-         processItem(item);
-       });
-     } else {
-           try {
-             const parsedItems = JSON.parse(data.items);
-             const itemsArray = Array.isArray(parsedItems) ? parsedItems : [parsedItems];
-             itemsArray.forEach((item) => {
-               processItem(item);
-             });
-           } catch (error) {
-             console.error('Error parsing items:', error);
-           }
-     }
+    const parsedItems = JSON.parse(data.items);
+    parsedItems.forEach((item) => {
+      processItem(item);
+    });
   }
 } else {
   processItem();
