@@ -350,6 +350,7 @@ const callInWindow = require("callInWindow");
 const makeString = require("makeString");
 const makeNumber = require("makeNumber");
 const log = require("logToConsole");
+const JSON = require("JSON");
 
 log("Attn GTM SDK data: ", data);
 
@@ -398,9 +399,13 @@ const processItem = (item) => {
 };
 
 if (data.eventType === "purchase") {
-  if (data.items) {
+  if (typeof data.items === 'string'){
     const parsedItems = JSON.parse(data.items);
     parsedItems.forEach((item) => {
+      processItem(item);
+    });
+  } else {
+    data.items.forEach((item) => {
       processItem(item);
     });
   }
